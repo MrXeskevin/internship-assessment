@@ -21,23 +21,23 @@ The Sunbird Translator and Summarizer uses a multi-stage AI pipeline to process 
 [ User Input ] ----> (Text or Audio/Recording)
        |
        v
-[  Speech-to-Text ] ----> (Audio Mode Only)
+[ 🎙️ Speech-to-Text ] ----> (Audio Mode Only)
 (Sunbird API: /tasks/stt)
        |
        v
-[  Summarisation ]
+[ 💡 Summarisation ]
 (Sunflower LLM: /tasks/sunflower_simple)
        |
        v
-[  Translation ]
+[ 🌍 Translation ]
 (Sunflower LLM: /tasks/sunflower_simple)
        |
        v
-[  Text-to-Speech ]
+[ 🔊 Text-to-Speech ]
 (Sunbird API: /tasks/tts)
        |
        v
-[ Final Results ]
+[ 🎉 Final Results ]
 (Transcript, Summary, Translation, Audio Player)
 ```
 
