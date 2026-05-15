@@ -10,13 +10,13 @@ license: mit
 short_description: 'AI localization for Ugandan languages (Text & Audio)'
 ---
 
-# ☀️ JUA — Translate & Summarize
+#  JUA — Translate & Summarize
 
 **JUA** (Swahili for "Know") is a premium, AI-powered localization platform designed to bridge communication gaps in Uganda. Built for the MUST (Mbarara University of Science and Technology) community and beyond, JUA simplifies complex information—from government notices to WhatsApp forwards—into concise, understandable summaries in major Ugandan local languages.
 
 [![Live App](https://img.shields.io/badge/Hugging%20Face-Spaces-blue?logo=huggingface)](https://huggingface.co/spaces/Kevin34Mugenyi/Sunbird-Translator-and-Summarizer)
 
-## ✨ Key Features
+##  Key Features
 
 ### 1. Intelligent Source Categorization
 JUA isn't just a translator; it understands the *context* of your information. Choose from 8 specialized source types to get tailored analysis:
@@ -35,13 +35,13 @@ JUA isn't just a translator; it understands the *context* of your information. C
 
 ### 3. Local Language Localization
 Translate and synthesize speech in 5 major Ugandan languages:
-*   🇺🇬 **Luganda**
-*   🇺🇬 **Runyankole**
-*   🇺🇬 **Ateso**
-*   🇺🇬 **Lugbara**
-*   🇺🇬 **Acholi**
+*    **Luganda**
+*    **Runyankole**
+*    **Ateso**
+*    **Lugbara**
+*    **Acholi**
 
-## 🛠️ Technical Pipeline
+##  Technical Pipeline
 
 The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbird AI APIs:
 
@@ -73,7 +73,7 @@ The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbir
 (Summary, Actions, Translation, Audio Player)
 ```
 
-## 🚀 Local Setup
+##  Local Setup
 
 ### Prerequisites
 *   Python 3.9+
@@ -104,7 +104,7 @@ The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbir
    streamlit run app.py
    ```
 
-## 🌐 Deployment
+##  Deployment
 
 ### Hugging Face Spaces
 1. Create a new Streamlit Space.
@@ -117,4 +117,4 @@ The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbir
 *   **API Stability:** Performance depends on Sunbird AI API availability; chunking is used to improve stability for long texts.
 
 ---
-*Built with ❤️ at MUST. Powered by Sunbird AI.*
+*This project is supported and powered by Sunbird AI.*
