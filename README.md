@@ -111,10 +111,10 @@ The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbir
 2. Push this repository to the Space's remote.
 3. Add `SUNBIRD_API_TOKEN` as a **Secret** in the Space settings.
 
-## 📝 Known Limitations
+##  Known Limitations
 *   **Audio Cap:** Maximum 5 minutes (300s) per recording/upload.
 *   **Language Scope:** Currently optimized for the 5 supported Ugandan languages.
 *   **API Stability:** Performance depends on Sunbird AI API availability; chunking is used to improve stability for long texts.
 
 ---
-*This project is supported and powered by Sunbird AI.*
+*This project was inspired and powered by Sunbird AI tools.*
