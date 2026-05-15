@@ -1,24 +1,52 @@
 ---
-title: Sunbird Translator and Summarizer
-emoji: 🌻
-colorFrom: yellow
-colorTo: green
+title: JUA — Translate & Summarize
+emoji: ☀️
+colorFrom: blue
+colorTo: orange
 sdk: streamlit
 app_file: app.py
 pinned: false
 license: mit
-short_description: 'To translate audio and text to Local Ug Languages'
+short_description: 'AI localization for Ugandan languages (Text & Audio)'
 ---
-#  Sunbird Translator and Summarizer
 
-Sunbird Summarizer is a premium Streamlit-powered Generative AI application designed to make information accessible across languages in Uganda. The app allows users to input either text or audio, which is then transcribed (if audio), summarised using the state-of-the-art Sunflower LLM, translated into a choice of five major Ugandan languages (Luganda, Runyankole, Ateso, Lugbara, and Acholi), and finally converted back into speech. This end-to-end pipeline leverages Sunbird AI's specialized APIs to bridge communication gaps and provide concise, localized content for all users.
+# ☀️ JUA — Translate & Summarize
 
-##  Pipeline Overview
+**JUA** (Swahili for "Know") is a premium, AI-powered localization platform designed to bridge communication gaps in Uganda. Built for the MUST (Mbarara University of Science and Technology) community and beyond, JUA simplifies complex information—from government notices to WhatsApp forwards—into concise, understandable summaries in major Ugandan local languages.
 
-The Sunbird Translator and Summarizer uses a multi-stage AI pipeline to process and localize content. Below is the technical architecture:
+[![Live App](https://img.shields.io/badge/Hugging%20Face-Spaces-blue?logo=huggingface)](https://huggingface.co/spaces/Kevin34Mugenyi/Sunbird-Translator-and-Summarizer)
+
+## ✨ Key Features
+
+### 1. Intelligent Source Categorization
+JUA isn't just a translator; it understands the *context* of your information. Choose from 8 specialized source types to get tailored analysis:
+*   **WhatsApp Messages:** Cut through the noise of group chats.
+*   **Radio Announcements:** Record and summarize what you heard on air.
+*   **Health Bulletins:** Get clear action points from medical notices.
+*   **Government Notices:** Simplify official circulars and notices.
+*   **Community Announcements:** Stay informed about local developments.
+*   **Multi-modal Input:** Type text, upload files, or **record your voice** directly in the browser.
+
+### 2. Deep Analysis & Actionable Insights
+*   **Summarized Analysis:** Get the "big picture" in seconds.
+*   **Action Points:** Clear "What you should do" instructions derived from the input.
+*   **Misinformation Flagging:** A built-in "Heads Up" feature that alerts users to unverified claims or potential misinformation.
+*   **Simplified Broadcasts:** Generates ready-to-share text snippets for sharing back to community groups.
+
+### 3. Local Language Localization
+Translate and synthesize speech in 5 major Ugandan languages:
+*   🇺🇬 **Luganda**
+*   🇺🇬 **Runyankole**
+*   🇺🇬 **Ateso**
+*   🇺🇬 **Lugbara**
+*   🇺🇬 **Acholi**
+
+## 🛠️ Technical Pipeline
+
+The JUA engine orchestrates a sophisticated multi-stage AI pipeline using Sunbird AI APIs:
 
 ```text
-[ User Input ] ----> (Text or Audio/Recording)
+[ User Input ] ----> (Text / Audio / Recording)
        |
        v
 [  Speech-to-Text ] ----> (Audio Mode Only)
@@ -26,6 +54,10 @@ The Sunbird Translator and Summarizer uses a multi-stage AI pipeline to process 
        |
        v
 [  Summarisation ]
+(Sunflower LLM: /tasks/sunflower_simple)
+       |
+       v
+[  Action Extraction ]
 (Sunflower LLM: /tasks/sunflower_simple)
        |
        v
@@ -38,79 +70,51 @@ The Sunbird Translator and Summarizer uses a multi-stage AI pipeline to process 
        |
        v
 [  Final Results ]
-(Transcript, Summary, Translation, Audio Player)
+(Summary, Actions, Translation, Audio Player)
 ```
 
-##  Local Setup
+## 🚀 Local Setup
 
-Follow these exact steps to run the application on your machine:
+### Prerequisites
+*   Python 3.9+
+*   Sunbird AI API Token ([Get one here](https://docs.sunbird.ai/))
 
-1. **Clone the repository:**
+### Installation
+1. **Clone the repo:**
    ```bash
    git clone https://github.com/MrXeskevin/internship-assessment.git
    cd internship-assessment
    ```
 
-2. **Activate your virtual environment:**
+2. **Setup Environment:**
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On macOS/Linux
-   ```
-
-3. **Install dependencies:**
-   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-4. **Configure Environment Variables:**
-   Create a `.env` file from the provided example and add your Sunbird API token.
-   ```bash
-   cp .env.example .env
+3. **Configure Secrets:**
+   Create a `.env` file:
+   ```env
+   SUNBIRD_API_TOKEN=your_actual_token_here
    ```
-   *Edit the `.env` file and replace `your_token_here` with your actual token.*
 
-5. **Run the application:**
+4. **Run App:**
    ```bash
    streamlit run app.py
    ```
 
-##  Environment Variables
+## 🌐 Deployment
 
-| Variable | Description | Requirement |
-| :--- | :--- | :--- |
-| `SUNBIRD_API_TOKEN` | Your Sunbird AI Bearer Token for authentication. | Required |
+### Hugging Face Spaces
+1. Create a new Streamlit Space.
+2. Push this repository to the Space's remote.
+3. Add `SUNBIRD_API_TOKEN` as a **Secret** in the Space settings.
 
-##  Usage Walkthrough
+## 📝 Known Limitations
+*   **Audio Cap:** Maximum 5 minutes (300s) per recording/upload.
+*   **Language Scope:** Currently optimized for the 5 supported Ugandan languages.
+*   **API Stability:** Performance depends on Sunbird AI API availability; chunking is used to improve stability for long texts.
 
-1. **Select Language:** Choose your target Ugandan language from the dropdown menu.
-2. **Choose Input Mode:** Toggle between "Text", "Audio", or "Record".
-3. **Provide Input:**
-   - **Text Mode:** Paste the long-form text you want to summarise.
-   - **Audio Mode:** Upload an MP3 or WAV file (max 5 minutes).
-   - **Record Mode:** Click to record your voice directly in the browser.
-4. **Process:** Click the **"Summarise & Translate"** button.
-5. **View Results:** The app will display the transcript (for audio), the summary, the translation, and an audio player.
-   - *Screenshots of the end-to-end flow are available in the repository's `assets` folder.*
-
-##  Deployed App
-
-You can try the live version of the application here:
- **[Sunbird Translator & Summarizer on Hugging Face Spaces](https://huggingface.co/spaces/Kevin34Mugenyi/Sunbird-Translator-and-Summarizer)**
-
-##  Hugging Face Spaces Deployment
-
-To deploy this app to your own Hugging Face Space:
-
-1. Create a new Space on [Hugging Face](https://huggingface.co/new-space).
-2. Select **Streamlit** as the SDK.
-3. Upload your project files (ensure `backend/__init__.py` is included for package recognition).
-4. Go to **Settings** > **Variables and secrets** in your Space.
-5. Add a new **Secret** named `SUNBIRD_API_TOKEN` with your API key.
-6. The app will automatically build and deploy.
-
-##  Known Limitations
-
-- **Audio Duration:** Files are limited to 300 seconds (5 minutes) for stability.
-- **Supported Languages:** Luganda, Runyankole, Ateso, Lugbara, and Acholi.
-- **File Formats:** Supports `.mp3` and `.wav`.
-- **API Limits:** Subject to Sunbird AI API rate limits.
+---
+*Built with ❤️ at MUST. Powered by Sunbird AI.*
