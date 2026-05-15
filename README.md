@@ -2,7 +2,7 @@
 title: JUA — Translate & Summarize
 emoji: ☀️
 colorFrom: blue
-colorTo: orange
+colorTo: yellow
 sdk: streamlit
 app_file: app.py
 pinned: false
